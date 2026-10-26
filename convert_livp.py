@@ -12,14 +12,18 @@
 """
 
 import io
+import sys
 import zipfile
 from pathlib import Path
+
+# 依赖包安装在 D 盘（不占用 C 盘空间）
+sys.path.insert(0, r"D:\pylibs")
 
 try:
     from PIL import Image
     import pillow_heif
 except ImportError:
-    print("缺少依赖，请先在命令行运行:  pip install pillow pillow-heif")
+    print("缺少依赖，请先在命令行运行:  py -m pip install --target=D:\\pylibs pillow pillow-heif")
     input("按回车退出...")
     raise SystemExit(1)
 
